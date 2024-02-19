@@ -1,0 +1,262 @@
+﻿Task: 2
+Give the answer to the following questions.
+(a) Create a vector, x, containing 100 observations drawn from a N(0,1) distribution. This represents a feature, X.
+(b) Create a vector, eps, containing 100 observations drawn from a N(0,0.25) distribution-a normal distribution with mean zero and variance 0.25.
+(c) Using x and eps, generate a vector y according to the model Y = −1+0.5X +ε.
+What is the length of the vector y? What are the values of β0 and β1 in this linear model?
+(d) Create a scatterplot displaying the relationship between x and y. Comment on what you observe.
+(e) Fit a least squares linear model to predict y using x. Comment on the model obtained. How do ˆβ0 and ˆβ1
+compare to β0 and β1?
+(f) Display the least squares line on the scatterplot obtained in (d). Draw the population regression line on the plot, in a different color.
+
+
+ (a) create a vector, x
+x <- rnorm(100, mean = 0, sd = 1)
+—-----------------------------------------------------------------------------------------------------------------------------------------
+(b) create a vector, eps
+eps <- rnorm(100, mean = 0, sd = sqrt(0.25))
+—----------------------------------------------------------------------------------------------------------------------------------------
+(c) Using x and eps, generate a vector y according to the model
+y <- -1 + 0.5*x + eps
+The length of the vector y will be 100. In this linear model, β0 = -1 and β1 = 0.5.
+—------------------------------------------------------------------------------------------------------------------------------------------
+(d) Scatterplot displaying the relationship between x and y.
+  
+
+Here we can see that positive correlation between x and y, it means that as the value of one variable x increases, the value of the other variable y also tends to increase.
+—------------------------------------------------------------------------------------------------------------------------------------------
+(e) Fit a least squares linear model to predict y using x:
+Fitted least squares regression line eq will be 
+y = β0_cap + β1_cap*x here β0_cap = -0.99770 and β1_cap = 0.48777
+  
+
+estimating coefficients β0_cap = -0.99770 and β1_cap = 0.48777 both are close to β0 and β1respectivey. It indicates that the linear regression model has effectively captured the underlying relationship between the predictor variable X and the target variable Y.
+R2 = 0.50 (say), then it indicates the model explained 50% of the variation that is there in the response. Thus, the fitted regression model is given by y = -0.99770 + 0.48777*x
+RSE = 0.4873, R2_adj = 0.4967 and R2 = 0.5018
+Note that p-value< 2.2 × 10−16 is very small and hence, we should reject the overall hypothesis H0 : β0_cap = β1_cap = 0.
+Check model is statisticaly significate or not: Use significance level α = 0.05 
+Testing Hypothisis: For β0_cap (intercept)
+H01 : β0_cap = 0 vs. H11 : β0_cap != 0
+p − value < 2 × 10^−16
+i.e., p = value < α and hence H01 is rejected.
+Testing Hypothisis: For β1_cap (slop)
+H01 : β1_cap = 0 vs. H11 : β1_cap != 0
+p−value < 2 × 10^−16
+ i.e., p-value < α and hence H01 is rejected.
+ Hence model a statistically significant.
+—------------------------------------------------------------------------------------------------------------------------------------------
+(f) Display the least squares line and the population regression line on the scatterplot
+  
+
+—---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Task: 3 By using Boston data set, give the answer to the following questions. Assume per capita crime rate is the response, and the predictors are as follows: zn, indus, nox, rm, dis, tax, medv.
+(a) For each predictor, fit a simple linear regression model to predict the response. Describe your results. In which of the models is there a statistically significant association between the predictor and the response?
+(b) Fit a multiple regression model to predict the response using all of the predictors. Describe your results. For which predictors can we reject the null hypothesis H0 : βj = 0?
+(c) Do all model model diagnostic checks and update the assumptions, if needed, and describe the updated model.
+In this  task given that, we have to use Bostan data set. And we have to use per capita crime rate is the response and the predictors are as follows: zn, indus, nox, rm, dis, tax, medv from the Boston data set.
+(a) Fit simple linear regression models for each predictor.
+(i) Fit simple linear regression model for response variable crime rate and predictor zn-
+  
+
+The fitted regression model1 eq will be- crime rate = b1 + m1 * zn , here b1 = 4.45369 and m1 = -0.07393
+(ii) Fit simple linear regression model for response variable crime rate and predictor indus- 
+  
+
+The fitted regression model2 eq will be- crime rate = b2 + m2 * indus, here b2 = -2.06374 and m2 = 0.50978  
+(iii) Fit simple linear regression model for response variable crime rate and predictor nox-
+  
+
+The fitted regression model3 eq will be- crime rate = b3 + m3 * nox, here b3 = 4.45369 and m3 = -0.07393
+(iv) Fit simple linear regression model for response variable crime rate and predictor rm-
+  
+
+The fitted regression model4 eq will be- crime rate = b4 + m4 * rm, here b4 = 20.482 and m4 = -2.684
+(v) Fit simple linear regression model for response variable crime rate and predictor dis-
+  
+
+The fitted regression model5 eq will be- crime rate = b5 + m5 * dis, here b5 = 9.4993 and m5 = -1.5509
+(vi) Fit simple linear regression model for response variable crime rate and predictor tax-
+  
+
+The fitted regression model6 eq will be- crime rate = b6 + m6 * tax, here b6 = -8.528369 and m6 = 0.029742
+(vii) Fit simple linear regression model for response variable crime rate and predictor medv-
+  
+
+The fitted regression model7 eq will be- crime rate = b7 + m7 * medv, here b7 = 11.79654 and m7 = -0.36316
+—------------------------------------------------------------------------------------------------------------------------------------------
+To determine whether there is a statistically significant association between a predictor variable and a response variable in models we will perform hypothesis testing. For testing the association between a predictor and a response, the null hypothesis usually states that there is no association (the coefficient for the predictor is zero), while the alternative hypothesis states that there is a nonzero association.
+Null Hypothesis (H0): There is no association between the predictor and the response. Alternative Hypothesis (H1): There is an association between the predictor and the response.
+Use significance level α = 0.05 
+For model1:
+Testing Hypothisis: For b1 (intercept)
+H01 : b1 = 0 vs. H11 : b1 != 0
+p − value < 2 × 10^−16
+i.e., p = value < α and hence H01 is rejected.
+Testing Hypothisis: For m1 (slop)
+H01 : m1 = 0 vs. H11 : m1 != 0
+p−value < 5.51 × 10^−6
+i.e., p-value < α and hence H01 is rejected.
+For model2:
+Testing Hypothisis: For b2 (intercept)
+H02 : b2 = 0 vs. H12 : b2 != 0
+p−value = 0.00209
+i.e., p-value < α and hence H02 is rejected.
+Testing Hypothisis: For m2 (slop)
+H02 : m2 = 0 vs. H12 : m2 != 0
+p−value < 2 × 10^−16
+i.e., p-value < α and hence H02 is rejected.
+For model3:
+Testing Hypothisis: For b3 (intercept)
+H03 : b3 = 0 vs. H12 : b3 != 0
+p−value < 2 × 10^−16
+i.e., p-value < α and hence H03 is rejected.
+Testing Hypothisis: For m3 (slop)
+H03 : m3 = 0 vs. H13 : m3 != 0
+p−value = 5.51 x 10^-6
+i.e., p-value < α and hence H03 is rejected.
+For model4:
+Testing Hypothisis: For b4 (intercept)
+H04 : b4 = 0 vs. H14 : b3 != 0
+p−value < 2.27 × 10^−9
+i.e., p-value < α and hence H04 is rejected.
+Testing Hypothisis: For m4 (slop)
+H04 : m4 = 0 vs. H14 : m4 != 0
+p−value = 6.35 x 10^-7
+i.e., p-value < α and hence H04 is rejected.
+For model5:
+Testing Hypothisis: For b5 (intercept)
+H05 : b5 = 0 vs. H15 : b5 != 0
+p−value < 2 × 10^−16
+i.e., p-value < α and hence H05 is rejected.
+Testing Hypothisis: For m5 (slop)
+H05 : m5 = 0 vs. H15 : m5 != 0
+p−value = 2 x 10^-16
+i.e., p-value < α and hence H05 is rejected.
+For model6:
+Testing Hypothisis: For b6 (intercept)
+H06 : b6 = 0 vs. H16 : b6 != 0
+p−value < 2 × 10^−16
+i.e., p-value < α and hence H06 is rejected.
+Testing Hypothisis: For m6 (slop)
+H06 : m6 = 0 vs. H16 : m6 != 0
+p−value = 2 x 10^-16
+i.e., p-value < α and hence H06 is rejected.
+For model7:
+Testing Hypothisis: For b7 (intercept)
+H07 : b7 = 0 vs. H17 : b7 != 0
+p−value < 2 × 10^−16
+i.e., p-value < α and hence H07 is rejected.
+Testing Hypothisis: For m7 (slop)
+H07 : m7 = 0 vs. H14 : m7 != 0
+p−value = 2 x 10^-16
+i.e., p-value < α and hence H07 is rejected.
+Hence, We can see that each model there is a statistically significant association between the predictor and the response.
+Check godness of Fit of models-
+Model-1: RSE = 8.435, R2_adj = 0.03828 and R2 = 0.04019
+Model-2: RSE = 7.866, R2_adj = 0.1637 and R2 = 0.1653,
+Model-3: RSE = 8.435, R2_adj = 0.03828 and R2 = 0.04019,
+Model-4: RSE = 8.401, R2_adj = 0.04618 and R2 = 0.04807
+
+
+Model-5: RSE = 7.965, R2_adj = 0.1425 and R2 = 0.1441
+Model-6: RSE = 6.997, R2_adj = 0.3383 and R2 = 0.3396 
+Model-7: RSE = 7.934, R2_adj = 0.1491  and R2 = 0.1508
+So, Model-6 is the best among these seven models.
+—--------------------------------------------------------------------------------------------------------------------------------------
+(b) Fit a multiple regression model to predict the response using all of the predictors.
+The fitted regression model eq will be 
+crim =  β0 + β1*zn + β2*indus + β3*nox + β4*rm + β5*dis + β6*tax + β7*medv
+Summary of multiple regression model:
+  
+
+R2 = 0.3845 (say), then it indicates the model explained 38% of the variation that is 
+ there in the response. Thus, the fitted regression model is given by
+crim = 2.417 + 0.039*zn - 0.226798*indus − 3.107230*nox + 0.596972*rm -                 1.138369*dis + 0.026635*tax - 0.235403*medv
+Note that p-value < 2.2 × 10−16 is very small and hence, we should reject the overall hypothesis H0 : β0 = β1 = β2 = β3 = β4 = β5 = β6=0
+We have F0 = 44.45 i.e. model is not too good.
+Test hypothesis on Individual Regression Coefficients: 
+Level-α-test with α = 0.05 
+Testing Problem 1 (For intercept): H01 : β0 = 0 vs. H11 : β0 != 0 
+p − value = 0.60997
+i.e., p-value > α and hence H01 is accepted.
+Testing Problem 2 (For coefficient of zn): H02 : β1 = 0 vs. H12 : β1 != 0
+p − value = 0.03517
+i.e., p-value < α and hence H02 is rejected.
+Testing Problem 3 (For coefficient of indus): H03 : β2 = 0 vs. H13 : β2 != 0 
+p − value = 0.00678
+i.e., p-value < α and hence H03 is rejected.
+Testing Problem 4 (For coefficient of nox): H04 : β3 = 0 vs. H14 : β3 != 0
+p − value = 0.52922 
+i.e., p-value > α and hence H04 is accepted.
+Testing Problem 5 (For coefficient of rm): H05 : β4 = 0 vs. H15 : β4 != 0 
+p − value = 0.32725
+i.e., p-value > α and hence H05 is accepted.
+Testing Problem 6 (For coefficient of dis): H06 : β5 = 0 vs. H16 : β5 != 0
+p − value = 4.99 X 10^-5
+i.e., p-value < α and hence H06 is rejected.
+Testing Problem 7 (For coefficient of tax): H07 : β6 = 0 vs. H17 : β6 != 0
+p − value < 2e X 10^-16
+i.e., p-value < α and hence H07 is rejected.
+Testing Problem 8 (For coefficient of medv): H08 : β7 = 0 vs. H18 : β7 != 0
+p − value = 6.82 X 10^-6 
+i.e., p-value < α and hence H08 is rejected.
+Hence, for zn, indus, dis, tax ans medv predictors we can reject the null hypothesis.
+—------------------------------------------------------------------------------------------------------------------------------------------
+(C)  First of all we will check is there any outlier in our data or not by using Cook’s Distance, DFDITS, DFBETA, COVRATIO.
+Leverage points in our data set -
+  
+
+Influential Points in our data set : Detect using Cook’s Distance, DFBETAS, DFFITS, COVRATIO -
+  
+
+Detect using DFBETAS-
+  
+
+Detect using DFFITS-
+  
+
+A measure of model performance: COVRATIO
+  
+
+Hence, in our data outlier present.
+—------------------------------------------------------------------------------------------------------------------------------------------
+Model Assumptions:
+(i) The error term has zero mean:
+  
+
+(ii) Check the error term has constant variance or not: Plot graph between residuals and fitted values.
+  
+
+By above graph we can see that error term has not constant variance.
+(iii) Check Uncorreleated error assumption: Use DurbinWatsonTest for this.
+  
+
+The Durbin-Watson test statistic (DW) is approximately 1.3535, and the p-value is very small (close to zero) for all three alternative hypotheses:Alternative = "less": The p-value is 1. This indicates that there is no evidence to suggest that the autocorrelation is less than 0 (i.e., negative autocorrelation). Alternative = "greater": The p-value is approximately 2.531 x 10^-14. This indicates strong evidence to suggest that the autocorrelation is greater than 0 (i.e., positive autocorrelation). Alternative = "two.sided": The p-value is also very small, approximately 5.061 x 10^-14. This indicates strong evidence to suggest that the autocorrelation is not equal to 0.
+Based on these results, we can conclude that there is strong evidence of positive autocorrelation in the errors of the regression model. This means that consecutive residuals are correlated with each other, violating the assumption of independence of errors.
+(iv) Normality assumption: Normality check by using Q-Q plot for studentized residuals-
+  
+
+By graph we can see that distribution of the studentized residual positive skew. It indicates that the residuals are not normally distributed.
+(v) Check the Multicollinearity-
+The minimum eigenvalue of variance-covariance matrix is approximately 0, it is indicating that one or more variables are linear combinations of other variables, suggesting multicollinearity.
+We can also check by VIF:
+  
+
+(vi) Check for linearity assumption:
+  
+
+By above plot we can see that the relationship btw response variable and predictor variable are  linear so linearity assumption hold.
+Fix non-normality and non-constant variance problem be transformation of response variable: Use Box-Cox method
+  
+
+The estimated transformation parameter is λ = −0.0405
+After applying the Box-Cox transformation, the updated data has approximately normal distribution with constant variance.
+  
+
+R2 = 0.8062 (say), then it indicates the model explained 81% of the variation that is 
+ there in the response. Thus, the fitted regression model is given by
+crim = -2.9110237 + -0.0074602*zn - 0.0063652*indus + 2.6853020*nox - 0.0017209*rm -  0.0290243*dis  + 0.0031805*tax + 0.0002168*medv
+Note that p-value < 2.2 × 10−16 is very small and hence, we should reject the overall hypothesis H0 : β0 = β1 = β2 = β3 = β4 = β5 = β6=0
+
+
+—---------------------------------------------------------------END—-----------------------------------------------------------------
